@@ -1,24 +1,22 @@
 import React from 'react';
-import logo from './logo.svg';
 import './App.css';
+import Button from './components/Button';
 
 function App() {
+  const [contador, setContador] = React.useState(1);
+
+  function aumentar(){
+    console.log("Entra a la función aumentar");
+    setContador(contador + 1);
+  }
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <p>Hello World {contador}</p>
+      <Button label="Incrementar" onClick={()=>aumentar()}></Button>
+      <Button label="Incrementar 2" color='green' onClick={()=>aumentar()}></Button>
+      <Button label="Incrementar 2" color='red' onClick={()=>aumentar()}></Button>
+
     </div>
   );
 }
